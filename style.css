@@ -1,0 +1,81 @@
+body {
+  margin: 20px;
+}
+          
+.container {  display: grid;
+  grid-template-columns: 0.6fr 1.4fr 1fr;
+  grid-template-rows: 0.5fr 1.9fr 0.6fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header"
+    "switches main main"
+    "switches quotes quotes";
+background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+border: 3px solid;
+height: 100%;
+margin: 10px}
+
+.switches { grid-area: switches;
+  background-color: rgba(255,255,255,0.2);
+border-bottom-left-radius: 10px;
+border-right: 3px solid}
+
+.header { grid-area: header;
+text-align: center;
+background-color: rgba(255,255,255,0.3);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom: 3px solid}
+
+.quotes { grid-area: quotes;
+background-color: rgba(255,255,255,0.3);
+border-bottom-right-radius: 10px;
+border-top: 3px solid;
+text-align: center}
+
+.main { grid-area: main; }
+
+html {background: rgb(34, 34, 34);
+font-family: "bauhaus 93"}
+
+a {text-decoration: none;
+color: black;
+padding: 5px;
+}
+
+.a {border-bottom: thin solid;
+text-align: center}
+
+@media (min-width: 900px){
+
+  .container {  display: grid;
+  grid-template-columns: 0.6fr 1.4fr 1fr;
+  grid-template-rows: 0.7fr 2.3fr 0.6fr 0.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "quotes quotes quotes"
+    "switches switches switches";
+  height: 100%;
+}
+
+.header { grid-area: header; }
+
+.main { grid-area: main; }
+
+.quotes { grid-area: quotes; }
+
+.switches { grid-area: switches;
+  border-top: thin solid;
+border-bottom-right-radius: 10px;
+  justify-content: space-between;
+  display: flex;}
+
+.a {border-bottom: none;
+text-align: center}
+
+}
