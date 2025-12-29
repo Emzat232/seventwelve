@@ -1,81 +1,93 @@
+:root {
+    --bg-color: rgb(0, 0, 0);
+    --text-color: rgb(255, 255, 255);
+    --accent-color: rgb(0, 255, 0);
+    --card-bg: rgb(20, 20, 20);
+}
+
 body {
-  margin: 20px;
-}
-          
-.container {  display: grid;
-  grid-template-columns: 0.6fr 1.4fr 1fr;
-  grid-template-rows: 0.5fr 1.9fr 0.6fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "header header header"
-    "switches main main"
-    "switches quotes quotes";
-background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-border: 3px solid;
-height: 100%;
-margin: 10px}
-
-.switches { grid-area: switches;
-  background-color: rgba(255,255,255,0.2);
-border-bottom-left-radius: 10px;
-border-right: 3px solid}
-
-.header { grid-area: header;
-text-align: center;
-background-color: rgba(255,255,255,0.3);
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-border-bottom: 3px solid}
-
-.quotes { grid-area: quotes;
-background-color: rgba(255,255,255,0.3);
-border-bottom-right-radius: 10px;
-border-top: 3px solid;
-text-align: center}
-
-.main { grid-area: main; }
-
-html {background: rgb(34, 34, 34);
-font-family: "bauhaus 93"}
-
-a {text-decoration: none;
-color: black;
-padding: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0 5%;
 }
 
-.a {border-bottom: thin solid;
-text-align: center}
-
-@media (min-width: 900px){
-
-  .container {  display: grid;
-  grid-template-columns: 0.6fr 1.4fr 1fr;
-  grid-template-rows: 0.7fr 2.3fr 0.6fr 0.4fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "header header header"
-    "main main main"
-    "quotes quotes quotes"
-    "switches switches switches";
-  height: 100%;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    align-items: center;
 }
 
-.header { grid-area: header; }
+.logo { font-weight: 800; 
+  	font-size: 1.5rem; 
+  	letter-spacing: -1px;}
 
-.main { grid-area: main; }
+.logo span { color: var(--accent-color); }
 
-.quotes { grid-area: quotes; }
+/* Hero Section */
+.hero { padding: 4rem 0; }
 
-.switches { grid-area: switches;
-  border-top: thin solid;
-border-bottom-right-radius: 10px;
-  justify-content: space-between;
-  display: flex;}
+.hero h1 { font-size: 4rem; line-height: 1; margin: 0; }
 
-.a {border-bottom: none;
-text-align: center}
+.hero h1 span { color: #555; }
 
+/* The Bento Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    gap: 20px;
+    margin-bottom: 5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.3s ease;
+}
+
+/* Creating the Bento Layout */
+.card-lg { grid-column: span 2; } /* Web Dev takes 2 columns */
+
+.card-sm { grid-column: span 1; }
+
+.card-md { grid-column: span 1; }
+
+.card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.card-content span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+}
+
+.card-content h2 { margin: 10px 0; font-size: 1.8rem; }
+
+button {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .card-lg { grid-column: span 1; }
+    .hero h1 { font-size: 2.5rem; }
 }
